@@ -9,8 +9,15 @@
 	<%= f.input :website %>
 	<%= f.input :employees %>
 	<%= f.input :revenue %>
-	<%= f.input :accounts_payable %>
 	<%= f.input :vc_already %>
 	<%= f.input :prospect_note %>
+	<%= f.input :intro_presentation_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
+	<%= f.input :estimated_ap %>
+	<%= f.input :sm_presentation_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
+	<%= f.input :actual_ap %>
+	<%= f.input :sm_conversion_est %>
+	<%= f.input :conversion_percentage %>
+	<%= f.input :status %>
+	<%= f.input :agreement_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
 	<%= f.button :submit %>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128034138) do
+ActiveRecord::Schema.define(version: 20180128080408) do
 
   create_table "prospects", force: :cascade do |t|
     t.string   "organization"
@@ -23,12 +23,19 @@ ActiveRecord::Schema.define(version: 20180128034138) do
     t.string   "phone"
     t.string   "website"
     t.integer  "employees"
-    t.decimal  "revenue",          default: 0.0,   null: false
-    t.decimal  "accounts_payable", default: 0.0,   null: false
-    t.boolean  "vc_already",       default: false
+    t.decimal  "revenue",                 default: 0.0,   null: false
+    t.boolean  "vc_already",              default: false
     t.text     "prospect_note"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.date     "intro_presentation_date"
+    t.decimal  "estimated_ap",            default: 0.0,   null: false
+    t.date     "sm_presentation_date"
+    t.decimal  "actual_ap",               default: 0.0,   null: false
+    t.decimal  "sm_conversion_est",       default: 0.0,   null: false
+    t.decimal  "conversion_percentage",   default: 0.0,   null: false
+    t.string   "status"
+    t.date     "agreement_date"
   end
 
 end

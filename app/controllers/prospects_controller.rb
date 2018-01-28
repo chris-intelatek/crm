@@ -39,7 +39,7 @@ class ProspectsController < ApplicationController
 
   private
     def prospect_params
-      params.require(:prospect).permit(:organization, :street_address, :address2, :city, :state, :zip, :phone, :website, :employees, :revenue, :accounts_payable, :vc_already, :prospect_note)
+      params.require(:prospect).permit(:organization, :street_address, :address2, :city, :state, :zip, :phone, :website, :employees, :revenue, :vc_already, :prospect_note, :intro_presentation_date, :estimated_ap, :sm_presentation_date, :actual_ap, :sm_conversion_est, :conversion_percentage, :status, :agreement_date)
     end
 
     def find_prospect
