@@ -1,0 +1,11 @@
+<% @prospects.each do |prospect| %>
+	<div class="col-md-4">
+		<div class="prospect">
+			<h2 class="prospect-title"><%= prospect.organization %></h2>
+			<%= link_to "View Prospect", prospect, class: "btn-custom" %>
+		</div>
+	</div>
+<% end %>
+
+
+<%= link_to "New Prospect", new_prospect_path %>

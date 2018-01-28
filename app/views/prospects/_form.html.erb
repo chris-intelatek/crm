@@ -1,0 +1,16 @@
+<%= simple_form_for @prospect do |f| %>
+	<%= f.input :organization, label: "Organization Name" %>
+	<%= f.input :street_address %>
+	<%= f.input :address2 %>
+	<%= f.input :city %>
+	<%= f.input :state %>
+	<%= f.input :zip %>
+	<%= f.input :phone %>
+	<%= f.input :website %>
+	<%= f.input :employees %>
+	<%= f.input :revenue %>
+	<%= f.input :accounts_payable %>
+	<%= f.input :vc_already %>
+	<%= f.input :prospect_note %>
+	<%= f.button :submit %>
+<% end %>

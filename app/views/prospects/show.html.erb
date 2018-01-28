@@ -1,0 +1,9 @@
+
+		<h2><%= @prospect.organization %></h2>
+		<p class="prospect-desc"><%= @prospect.accounts_payable %></p>
+		
+		<p><%= time_ago_in_words(@prospect.created_at) %> ago</p>
+
+		<%= link_to "Back", root_path %> | 
+		<%= link_to "Edit", edit_prospect_path(@prospect) %> | 
+		<%= link_to "delete", prospect_path(@prospect), method: :delete, data: { confirm: "Are you sure?" } %>
