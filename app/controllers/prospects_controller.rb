@@ -9,11 +9,11 @@ class ProspectsController < ApplicationController
   end
   
   def new
-    @prospect = Prospect.new
+    @prospect = current_user.prospects.build
   end
   
   def create
-    @prospect = Prospect.new(prospect_params)
+    @prospect = current_user.prospects.build(prospect_params)
     if @prospect.save
       redirect_to root_path
     else

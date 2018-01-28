@@ -4,6 +4,12 @@
 		
 		<p><%= time_ago_in_words(@prospect.created_at) %> ago</p>
 
+    <h3>Prospect Notes</h3>
+    <%= render @prospect.comments %>
+
+    <h3>Add Note to Prospect</h3>
+    <%= render 'comments/form' %>
+
 		<%= link_to "Back", root_path %> | 
 		<%= link_to "Edit", edit_prospect_path(@prospect) %> | 
 		<%= link_to "delete", prospect_path(@prospect), method: :delete, data: { confirm: "Are you sure?" } %>
