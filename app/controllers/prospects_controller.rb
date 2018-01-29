@@ -1,5 +1,6 @@
 class ProspectsController < ApplicationController
   before_action :find_prospect, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   
   def index
     @prospects = Prospect.all.order("created_at DESC")

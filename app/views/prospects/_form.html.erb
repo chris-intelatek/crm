@@ -9,11 +9,12 @@
 	<%= f.input :website %>
 	<%= f.input :employees %>
 	<%= f.input :revenue %>
-	<%= f.input :vc_already %>
+	<%= f.input :vc_already, label: 'VC Now?' %>
 	<%= f.input :prospect_note %>
 	<%= f.input :intro_presentation_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
 	<%= f.input :estimated_ap %>
 	<%= f.input :sm_presentation_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
+	<%= f.input :sm_status %>
 	<%= f.input :actual_ap %>
 	<%= f.input :sm_conversion_est %>
 	<%= f.input :conversion_percentage %>

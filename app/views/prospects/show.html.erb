@@ -1,15 +1,48 @@
-
+<div class="col-md-8 col-md-offset-2">
+	<div class="prospect-show">
 		<h2><%= @prospect.organization %></h2>
-		<p class="prospect-desc"><%= @prospect.estimated_ap %></p>
-		
-		<p><%= time_ago_in_words(@prospect.created_at) %> ago</p>
+		<p class="prospect-posted-by">Posted by <%= @prospect.user.first %>
+		  <%= @prospect.user.last %> <%= time_ago_in_words(@prospect.created_at) %> ago</p>
+	<%= @prospect.street_address %>, <%= @prospect.address2 %><br>
+	<%= @prospect.city %>, <%= @prospect.state %> <%= @prospect.zip %><br>
+	<%= @prospect.phone %> <%= @prospect.website %><br>
+	Employees: <%= @prospect.employees %>  Revenue: <%= number_to_currency(@prospect.revenue, precision: 0) %><br>
+		VC Now? <%= @prospect.vc_already %><br>
+	Other: <%= @prospect.prospect_note %><br>
+  <br>
+  <% if !@prospect.intro_presentation_date.nil? %>
+		<%= @prospect.intro_presentation_date.strftime("%m/%d/%Y") %>
+	<% end %><br>
+	<%= number_to_currency(@prospect.estimated_ap, precision: 0) %><br>
+	<% if !@prospect.sm_received_date.nil? %>
+		<%= @prospect.sm_received_date.strftime("%m/%d/%Y") %>
+	<% end %><br>
+	<%= @prospect.sm_status %></td>
+	<%= number_to_currency(@prospect.actual_ap, precision: 0) %><br>
+	<%= number_to_currency(@prospect.sm_conversion_est, precision: 0) %><br>
+	<% if (@prospect.sm_conversion_est / @prospect.actual_ap) > 0.00001 %>
+		<%= number_to_percentage((@prospect.sm_conversion_est / @prospect.actual_ap)*100, precision: 1) %>
+	<% end %><br>
+	<% if !@prospect.sm_presentation_date.nil? %>
+		<%= @prospect.sm_presentation_date.strftime("%m/%d/%Y") %>
+	<% end %><br>
+	<%= @prospect.status %>
+	<% if !@prospect.agreement_date.nil? %>
+		<%= @prospect.agreement_date.strftime("%m/%d/%Y") %>
+	<% end %><br>
 
-    <h3>Prospect Notes</h3>
-    <%= render @prospect.comments %>
 
-    <h3>Add Note to Prospect</h3>
-    <%= render 'comments/form' %>
+		<h3 class="comment-section-header">Prospect Notes:</h3>
+		<!-- renders the _comment.html.erb partial file. -->
+		<p><%= render @prospect.comments %></p>
 
-		<%= link_to "Back", root_path %> | 
-		<%= link_to "Edit", edit_prospect_path(@prospect) %> | 
-		<%= link_to "delete", prospect_path(@prospect), method: :delete, data: { confirm: "Are you sure?" } %>
+		<h3 class="reply-to-msg">Add Note to Prospect:</h3>
+		<%= render 'comments/form' %>
+
+		<div class="links btn-group">
+			<%= link_to "Back", root_path, class: "btn btn-default" %>
+			<%= link_to "Edit", edit_prospect_path(@prospect), class: "btn btn-default" %>
+			<%= link_to "Delete", prospect_path(@prospect), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+		</div>
+	</div>
+</div>

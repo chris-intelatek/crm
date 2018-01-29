@@ -19,9 +19,10 @@
 
 /* General styles */
 
+
 body {
-	background-color: #fff;
-	font-family: 'Playfair Display', serif;
+  //padding-top: 50px;
+  padding-bottom: 60px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -55,28 +56,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar {
 	font-family: 'Muli', sans-serif;
-	text-transform: uppercase;
 }
 
 .navbar-default {
-
-	padding-top: 5px;
-	padding-bottom: 5px;
-	background-color: #fff;
-
 	.navbar-nav > li > a {
-		color: #222;
+		color: gray;
 	}
-
 	.navbar-link {
-		color: #222;
+		color: gray;
 	}
+}
 
-	.navbar-brand {
-		color: #222;
-		letter-spacing: 1.1px;
-	}
-
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 1px;
+  width: auto;
 }
 
 

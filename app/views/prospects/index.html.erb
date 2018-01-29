@@ -1,11 +1,53 @@
-<% @prospects.each do |prospect| %>
-	<div class="col-md-4">
-		<div class="prospect">
-			<h2 class="prospect-title"><%= prospect.organization %></h2>
-			<%= link_to "View Prospect", prospect, class: "btn-custom" %>
-		</div>
-	</div>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Consultant</th>
+      <th scope="col">Prospect</th>
+      <th scope="col">Intro Pres<br>Date</th>
+      <th scope="col">Estimated<br>AP</th>
+      <th scope="col">SM Received<br>Date</th>
+      <th scope="col">SM<br>Status</th>
+      <th scope="col">Actual AP</th>      
+      <th scope="col">SM Conversion<br>$ Estimate</th>
+      <th scope="col">%</th>
+      <th scope="col">SM Conversion<br>Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Agreement Date</th>
+    </tr>
+  </thead>
 
+  <tbody>
+		<% @prospects.each do |prospect| %>
+			<% if (prospect.user_id == current_user.id) || current_user.manager %>
+		    <tr>
+		      <td><%= prospect.user.first %> <%= prospect.user.last %></td>
+		      <td><%= link_to prospect.organization, prospect	%></td>
+		      <td><% if !prospect.intro_presentation_date.nil? %>
+		      		<%= prospect.intro_presentation_date.strftime("%m/%d/%Y") %>
+		      		<% end %></td>
+		      <td><%= number_to_currency(prospect.estimated_ap, precision: 0) %></td>
+		      <td><% if !prospect.sm_received_date.nil? %>
+		      		<%= prospect.sm_received_date.strftime("%m/%d/%Y") %>
+		      		<% end %></td>
+		      <td><%= prospect.sm_status %></td>
+		      <td><%= number_to_currency(prospect.actual_ap, precision: 0) %></td>
+		      <td><%= number_to_currency(prospect.sm_conversion_est, precision: 0) %></td>
+		      <td><% if (prospect.sm_conversion_est / prospect.actual_ap) > 0.00001 %>
+		      		<%= number_to_percentage((prospect.sm_conversion_est / prospect.actual_ap)*100, precision: 1) %>
+		      		<% end %></td>
+		      <td><% if !prospect.sm_presentation_date.nil? %>
+		      		<%= prospect.sm_presentation_date.strftime("%m/%d/%Y") %>
+		      		<% end %></td>
+		      <td><%= prospect.status %></td>
+		      <td><% if !prospect.agreement_date.nil? %>
+		      		<%= prospect.agreement_date.strftime("%m/%d/%Y") %>
+		      		<% end %></td>
+		      </td>
+		    </tr>
+			<% end %>
+		<% end %>
+  </tbody>
+  
+</table>
 
 <%= link_to "New Prospect", new_prospect_path %>

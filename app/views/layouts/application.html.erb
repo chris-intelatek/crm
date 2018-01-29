@@ -1,3 +1,9 @@
+<!-- Application Designed by IntelaTek Inc.
+On behalf of Blue Coast Savings Consultants
+in partnership with Kontrol Payables
+January 28th 2018
+Author Chris Cunningham -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,29 +13,35 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-	<nav class="navbar navbar-default">
+  	
+	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
-			<div class="navbar-header">
-				<%= link_to "Kontrol CRM", root_path, class: "navbar-brand" %>
-			</div>
+      <%= link_to image_tag("kontrol-logo.png", alt: "logo"), '/', class: 'navbar-brand' %>
 			<ul class="nav navbar-nav pull-right">
-				<li><%= link_to "Sign Up", new_user_registration_path %></li>
 				<% if user_signed_in? %>
+					<!--Replace links with icons when I get the chance - gear & lock-->
+					<li><%= link_to "Edit", edit_user_registration_path %></1i>
 					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 				<% else %>	
+					<li><%= link_to "Sign Up", new_user_registration_path %></li>
 					<li><%= link_to "Log In", new_user_session_path %></li>
 				<% end %>
 			</ul>
-			<% if user_signed_in? %>
-				<p><%= link_to "New Message", new_prospect_path, class: "navbar-text navbar-link navbar-right" %></p>
-			<% end %>
+
 		</div>
 	</nav>
-    
     
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
-    <%= yield %>
+    <div class="container-fluid">
+    	<%= yield %>
+    </div>
   </body>
+  
+
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+      <p align="center" style="color:gray;"><br>Blue Coast Savings Consultants &copy; 2018</p>
+  </nav>
+  
 </html>
