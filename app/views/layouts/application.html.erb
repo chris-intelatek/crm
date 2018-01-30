@@ -7,7 +7,17 @@ Author Chris Cunningham -->
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Workspace</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kontrol - Accounts Payable Payment Solutions</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -19,8 +29,11 @@ Author Chris Cunningham -->
       <%= link_to image_tag("kontrol-logo.png", alt: "logo"), '/', class: 'navbar-brand' %>
 			<ul class="nav navbar-nav pull-right">
 				<% if user_signed_in? %>
-					<!--Replace links with icons when I get the chance - gear & lock-->
-					<li><%= link_to "Edit", edit_user_registration_path %></1i>
+          <% if current_user.manager %>
+            <li><%= link_to "Users", users_path %> </li>
+          <% end %>
+          <li><%= link_to "Prospects", root_path %> </li>
+					<li><%= link_to current_user.advisor_first_name + ' ' + current_user.advisor_last_name, edit_user_registration_path %></1i>
 					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 				<% else %>	
 					<li><%= link_to "Sign Up", new_user_registration_path %></li>

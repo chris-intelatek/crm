@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129065129) do
+ActiveRecord::Schema.define(version: 20180130041927) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -50,6 +50,19 @@ ActiveRecord::Schema.define(version: 20180129065129) do
     t.integer  "user_id"
     t.date     "sm_received_date"
     t.string   "sm_status"
+    t.string   "contact1_first_name"
+    t.string   "contact1_last_name"
+    t.string   "contact1_title"
+    t.string   "contact1_phone"
+    t.string   "contact1_mobile"
+    t.string   "contact1_email"
+    t.string   "contact2_first_name"
+    t.string   "contact2_last_name"
+    t.string   "contact2_title"
+    t.string   "contact2_phone"
+    t.string   "contact2_mobile"
+    t.string   "contact2_email"
+    t.integer  "primary_contact"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,10 +78,12 @@ ActiveRecord::Schema.define(version: 20180129065129) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first"
-    t.string   "last"
+    t.string   "advisor_first_name"
+    t.string   "advisor_last_name"
     t.boolean  "admin",                  default: false
     t.boolean  "manager",                default: false
+    t.string   "advisor_phone"
+    t.string   "advisor_mobile"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

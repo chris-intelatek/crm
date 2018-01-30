@@ -1,48 +1,122 @@
-<div class="col-md-8 col-md-offset-2">
+
+<div class="col-md-4 col-md-offset-4">
 	<div class="prospect-show">
 		<h2><%= @prospect.organization %></h2>
-		<p class="prospect-posted-by">Posted by <%= @prospect.user.first %>
-		  <%= @prospect.user.last %> <%= time_ago_in_words(@prospect.created_at) %> ago</p>
-	<%= @prospect.street_address %>, <%= @prospect.address2 %><br>
-	<%= @prospect.city %>, <%= @prospect.state %> <%= @prospect.zip %><br>
-	<%= @prospect.phone %> <%= @prospect.website %><br>
-	Employees: <%= @prospect.employees %>  Revenue: <%= number_to_currency(@prospect.revenue, precision: 0) %><br>
-		VC Now? <%= @prospect.vc_already %><br>
-	Other: <%= @prospect.prospect_note %><br>
-  <br>
-  <% if !@prospect.intro_presentation_date.nil? %>
-		<%= @prospect.intro_presentation_date.strftime("%m/%d/%Y") %>
-	<% end %><br>
-	<%= number_to_currency(@prospect.estimated_ap, precision: 0) %><br>
-	<% if !@prospect.sm_received_date.nil? %>
-		<%= @prospect.sm_received_date.strftime("%m/%d/%Y") %>
-	<% end %><br>
-	<%= @prospect.sm_status %></td>
-	<%= number_to_currency(@prospect.actual_ap, precision: 0) %><br>
-	<%= number_to_currency(@prospect.sm_conversion_est, precision: 0) %><br>
-	<% if (@prospect.sm_conversion_est / @prospect.actual_ap) > 0.00001 %>
-		<%= number_to_percentage((@prospect.sm_conversion_est / @prospect.actual_ap)*100, precision: 1) %>
-	<% end %><br>
-	<% if !@prospect.sm_presentation_date.nil? %>
-		<%= @prospect.sm_presentation_date.strftime("%m/%d/%Y") %>
-	<% end %><br>
-	<%= @prospect.status %>
-	<% if !@prospect.agreement_date.nil? %>
-		<%= @prospect.agreement_date.strftime("%m/%d/%Y") %>
-	<% end %><br>
+		<p class="prospect-posted-by">Posted by <%= @prospect.user.advisor_first_name + ' ' +
+		@prospect.user.advisor_last_name %> <%= time_ago_in_words(@prospect.created_at) %> ago  
+		and last updated <%= time_ago_in_words(@prospect.updated_at) %> ago.</p>
+		
+		<table>
+		  <tr>
+		    <td width="400" valign="top">
+		      <%= @prospect.street_address %><% if !@prospect.address2.nil? %>, <%= @prospect.address2 %><% end %><br>
+        	<%= @prospect.city %>, <%= @prospect.state %> <%= @prospect.zip %><br>
+        	<%= @prospect.phone %><br>
+        	<%= @prospect.website %><br>
+        	Employees: <%= @prospect.employees %><br>
+			    Revenue: <%= number_to_currency(@prospect.revenue, precision: 0) %><br>
+        	Using VP Now? <% if @prospect.vc_already == true %> Yes <% else %> No <% end %>
+		    </td>
+		    
+		    <td width="100">&nbsp;</td>
+		    
+		    <td width="400" valign="top">
+		      <% if !@prospect.contact1_first_name.nil? %>
+          <%= @prospect.contact1_first_name %> <%= @prospect.contact1_last_name %><br>
+          Title: <%= @prospect.contact1_title %><br>
+          Phone: <%= @prospect.contact1_phone %><br>
+          Mobile: <%= @contact1_mobile %><br>
+          <%= @contact1_email %><br>
+          <% end %>
+          <br>
+		      <% if !@prospect.contact2_first_name.nil? %>
+          <%= @prospect.contact2_first_name %> <%= @prospect.contact2_last_name %><br>
+          Title: <%= @prospect.contact2_title %><br>
+          Phone: <%= @prospect.contact2_phone %><br>
+          Mobile: <%= @prospect.contact2_mobile %><br>
+          Email: <%= @prospect.contact2_email %><br>
+          <% end %>
+		    </td>
+		  </tr>
+		</table>
+		
+		<table>
+		  <tr>
+		    <td>&nbsp;</td>
+		  </tr>
+		  <tr>
+		    <td>Other: <%= @prospect.prospect_note %></td>
+		  </tr>
+		  <tr>
+		    <td>&nbsp;</td>
+		  </tr>
+		  
+		</table>
+  	
+  	<table>
+  	  <tr>
+  	    <td width="400" valign="top">
+  	      Intro Pres Date: <% if !@prospect.intro_presentation_date.nil? %>
+				  <%= @prospect.intro_presentation_date.strftime("%m/%d/%Y") %><% end %><br>
+			    Estimated Ap: <%= number_to_currency(@prospect.estimated_ap, precision: 0) %><br>
+  	      Sm Received Date: <% if !@prospect.sm_received_date.nil? %>
+				  <%= @prospect.sm_received_date.strftime("%m/%d/%Y") %><% end %>
+  	    </td>
+  	     
+  	     <td width="100"></td>
+  	     
+  	    <td width="400" valign="top">
+          Actual Ap: <%= number_to_currency(@prospect.actual_ap, precision: 0) %><br>
+          SM Conversion Est: <%= number_to_currency(@prospect.sm_conversion_est, precision: 0) %><br>
+          Conversion Percentage: <% if (@prospect.sm_conversion_est / @prospect.actual_ap) > 0.00001 %>
+  		    <%= number_to_percentage((@prospect.sm_conversion_est / @prospect.actual_ap)*100, precision: 1) %><% end %><br>    
+  	       
+        </td>
+  	  </tr>
+  	</table>
+
+  	<table>
+  	  <tr>
+  	    <td width="400" valign="top">
+  	      SM Pres Date: <% if !@prospect.sm_presentation_date.nil? %>
+				  <%= @prospect.sm_presentation_date.strftime("%m/%d/%Y") %><% end %>
+  	    </td>
+  	     
+  	     <td width="100"></td>
+  	     
+  	    <td width="400" valign="top">
+  	      Agreement Date: <% if !@prospect.agreement_date.nil? %>
+				  <%= @prospect.agreement_date.strftime("%m/%d/%Y") %><% end %>	
+  	     </td>
+        </td>
+  	  </tr>
+  	</table>
+  	
+  	
+		<table>
+		  <tr>
+		    <td>&nbsp;</td>
+		  </tr>
+		  <tr>
+		    <td><h4>Status: <%= @prospect.status %></h4></td>
+		  </tr>
+		  <tr>
+		    <td>&nbsp;</td>
+		  </tr>
+		  
+		</table>
 
 
-		<h3 class="comment-section-header">Prospect Notes:</h3>
-		<!-- renders the _comment.html.erb partial file. -->
+		<hr>
+
 		<p><%= render @prospect.comments %></p>
 
-		<h3 class="reply-to-msg">Add Note to Prospect:</h3>
 		<%= render 'comments/form' %>
 
 		<div class="links btn-group">
-			<%= link_to "Back", root_path, class: "btn btn-default" %>
-			<%= link_to "Edit", edit_prospect_path(@prospect), class: "btn btn-default" %>
-			<%= link_to "Delete", prospect_path(@prospect), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+			<%= link_to "Back", root_path, class: "btn btn-info" %>
+			<%= link_to "Edit & More Fields", edit_prospect_path(@prospect), class: "btn btn-warning" %>
+			<%= link_to "Delete", prospect_path(@prospect), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,57 @@
+<div class="col-md-4 col-md-offset-4">
+	<div class="prospect-show">
+
+    <h2>Listing all Users</h2>
+    <p><em>Please note: Only managers can see this page.</em></p>
+    <p>&nbsp;</p>
+    
+    <table class="table table-sm index-table">
+      <thead>
+        <tr>
+          <th class="th-left">Name</th>
+          <th>Last Logged In</th>
+          <th>Manager</th> 
+          <th>Edit</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @users = User.all %>
+          <% @users.each do |user| %>
+            <% if current_user.manager %>
+            	<td class="td-left"><%= link_to user.advisor_first_name + ' ' + user.advisor_last_name, user %></td>
+            	<td><%= time_ago_in_words(user.last_sign_in_at) %> ago</td>
+            	<td><% if user.manager == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
+            	<td><%= link_to 'Edit', edit_user_registration_path %></td>
+    		    </tr>
+    			<% end %>
+    		<% end %>
+      </tbody>
+      
+    </table>
+
+    <hr>
+    
+    <h2>Future Features</h2>
+    <p>I put this CRM together as quick as I could, with a focus on what the advisors need to be able to start tracking their deals and for us to be able to access, and add, notes, etc.</p>
+    <p>Over the next month or two, I intend to add the following features, between other more urgent tasks:
+    <ul>
+      <li>Edit Users</li>
+      <li>Email password reset</li>
+      <li>Search by
+        <ul>
+          <li>Organization</li>
+          <li>Advisor</li>
+          <li>Deal status</li>
+          <li>Time Period</li>
+        </ul>
+      <li>Sortable Columns</li>
+      <li>Pagination (limit results per page with tabs to the next 10 or 20 etc)</li>
+      <li>Management Reports</li>
+      <li>Forecasts</li>
+      <li>Dashboard</li>
+      <li>Other - by request</li>
+    </ul>
+
+  </div>
+</div>
