@@ -6,7 +6,7 @@
     <p><em>Please note: Only managers can see this page.</em></p>
     <p>&nbsp;</p>
   	<div class="prospect-show table-responsive table-striped">
-      <table class="table table-sm index-table table-hover">
+      <table class="table table-sm index-table">
         <thead>
           <tr>
             <th class="th-left">Name</th>
@@ -20,7 +20,7 @@
           <% @users = User.all %>
             <% @users.each do |user| %>
               <% if current_user.manager %>
-              	<td class="td-left"><%= link_to user.advisor_first_name + ' ' + user.advisor_last_name, user %></td>
+              	<td class="td-left"><strong><%= link_to user.advisor_first_name + ' ' + user.advisor_last_name, user %></strong></td>
               	<td><%= time_ago_in_words(user.last_sign_in_at) %> ago</td>
               	<td><% if user.manager == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
               	<td><%= link_to 'Edit', edit_user_registration_path %></td>
