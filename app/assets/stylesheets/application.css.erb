@@ -23,7 +23,11 @@
 body {
   //padding-top: 50px;
   padding-bottom: 60px;
+    background: url(<%= asset_path "strategy.jpg" %>) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Muli', sans-serif;
@@ -125,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 	box-sizing: border-box;
 	background-color: #383838;
 	padding: 2.0em 1.5em;
-	border-bottom: 4px solid #0a8fd5;
+	/* border-bottom: 4px solid #0a8fd5; */
 	color: #fff;
 	font-family: 'Muli', sans-serif;
 	font-weight: 300;
@@ -171,7 +175,8 @@ h1, h2, h3, h4, h5, h6 {
 	.links {
 		margin-top: 15px;
 		a {
-			color: #0a8fd5;
+			color: #00FF7F;
+			//color: #0a8fd5;
 			margin-right: 15px;
 		}
 	}
