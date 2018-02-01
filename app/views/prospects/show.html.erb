@@ -1,14 +1,14 @@
 
-<div class="col-md-4 col-md-offset-4">
+<div class="col-md-6 col-md-offset-3">
 	<div class="prospect-show">
 		<h2><%= @prospect.organization %></h2>
 		<p class="prospect-posted-by">Posted by <%= @prospect.user.advisor_first_name + ' ' +
 		@prospect.user.advisor_last_name %> <%= time_ago_in_words(@prospect.created_at) %> ago  
 		and last updated <%= time_ago_in_words(@prospect.updated_at) %> ago.</p>
 		
-		<table>
+		<table align="center">
 		  <tr>
-		    <td width="400" valign="top">
+		    <td width="350" valign="top">
 		      <%= @prospect.street_address %><% if !@prospect.address2.nil? %>, <%= @prospect.address2 %><% end %><br>
         	<%= @prospect.city %>, <%= @prospect.state %> <%= @prospect.zip %><br>
         	<%= @prospect.phone %><br>
@@ -20,7 +20,7 @@
 		    
 		    <td width="100">&nbsp;</td>
 		    
-		    <td width="400" valign="top">
+		    <td width="350" valign="top">
 		      <% if !@prospect.contact1_first_name.nil? %>
           <%= @prospect.contact1_first_name %> <%= @prospect.contact1_last_name %><br>
           Title: <%= @prospect.contact1_title %><br>
@@ -55,7 +55,7 @@
   	
   	<table>
   	  <tr>
-  	    <td width="400" valign="top">
+  	    <td width="350" valign="top">
   	      Intro Pres Date: <% if !@prospect.intro_presentation_date.nil? %>
 				  <%= @prospect.intro_presentation_date.strftime("%m/%d/%Y") %><% end %><br>
 			    Estimated Ap: <%= number_to_currency(@prospect.estimated_ap, precision: 0) %><br>
@@ -65,7 +65,7 @@
   	     
   	     <td width="100"></td>
   	     
-  	    <td width="400" valign="top">
+  	    <td width="350" valign="top">
           Actual Ap: <%= number_to_currency(@prospect.actual_ap, precision: 0) %><br>
           SM Conversion Est: <%= number_to_currency(@prospect.sm_conversion_est, precision: 0) %><br>
           Conversion Percentage: <% if (@prospect.sm_conversion_est / @prospect.actual_ap) > 0.00001 %>
@@ -77,14 +77,14 @@
 
   	<table>
   	  <tr>
-  	    <td width="400" valign="top">
+  	    <td width="350" valign="top">
   	      SM Pres Date: <% if !@prospect.sm_presentation_date.nil? %>
 				  <%= @prospect.sm_presentation_date.strftime("%m/%d/%Y") %><% end %>
   	    </td>
   	     
   	     <td width="100"></td>
   	     
-  	    <td width="400" valign="top">
+  	    <td width="350" valign="top">
   	      Agreement Date: <% if !@prospect.agreement_date.nil? %>
 				  <%= @prospect.agreement_date.strftime("%m/%d/%Y") %><% end %>	
   	     </td>
