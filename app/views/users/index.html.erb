@@ -1,5 +1,5 @@
 
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-4 col-md-offset-4">
 	<div class="prospect-show">
 
     <h2>Listing all Users</h2>
@@ -12,7 +12,6 @@
             <th class="th-left">Name</th>
             <th>Last Logged In</th>
             <th>Manager</th> 
-            <th>Edit</th>
           </tr>
         </thead>
       
@@ -23,7 +22,6 @@
               	<td class="td-left"><strong><%= link_to user.advisor_first_name + ' ' + user.advisor_last_name, user %></strong></td>
               	<td><%= time_ago_in_words(user.last_sign_in_at) %> ago</td>
               	<td><% if user.manager == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
-              	<td><%= link_to 'Edit', edit_user_registration_path %></td>
       		    </tr>
       			<% end %>
       		<% end %>

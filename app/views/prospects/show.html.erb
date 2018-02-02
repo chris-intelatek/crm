@@ -58,6 +58,7 @@
   	    <td width="350" valign="top">
   	      Intro Pres Date: <% if !@prospect.intro_presentation_date.nil? %>
 				  <%= @prospect.intro_presentation_date.strftime("%m/%d/%Y") %><% end %><br>
+				  Intro Presented by: <%= @prospect.intro_presenter %><br>
 			    Estimated Ap: <%= number_to_currency(@prospect.estimated_ap, precision: 0) %><br>
   	      Sm Received Date: <% if !@prospect.sm_received_date.nil? %>
 				  <%= @prospect.sm_received_date.strftime("%m/%d/%Y") %><% end %>
@@ -74,12 +75,13 @@
         </td>
   	  </tr>
   	</table>
-
+    <p>&nbsp;</p>
   	<table>
   	  <tr>
   	    <td width="350" valign="top">
   	      SM Pres Date: <% if !@prospect.sm_presentation_date.nil? %>
-				  <%= @prospect.sm_presentation_date.strftime("%m/%d/%Y") %><% end %>
+				  <%= @prospect.sm_presentation_date.strftime("%m/%d/%Y") %><% end %><br>
+				  SM Presented by: <%= @prospect.sm_presenter %><br>
   	    </td>
   	     
   	     <td width="100"></td>
@@ -113,7 +115,7 @@
 
 		<%= render 'comments/form' %>
 
-		<div class="links btn-group">
+		<div class="links">
 			<%= link_to "Back", root_path, class: "btn btn-info" %>
 			<%= link_to "Edit & More Fields", edit_prospect_path(@prospect), class: "btn btn-warning" %>
 			<%= link_to "Delete", prospect_path(@prospect), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>

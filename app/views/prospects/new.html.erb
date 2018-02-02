@@ -70,7 +70,7 @@
 			<%= f.input :intro_presentation_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
 			<%= f.input :estimated_ap %>
 			<%= f.input :prospect_note, label: "Note" %>
-			<%= f.input :status, collection: ['Intro Presentation Scheduled', 'Intro Presentation Conducted', 'Waiting for NDA', 'Waiting for Supplier Data', 'Waiting for Supplier Match', 'SM / Demo Scheduled', 'SM / Demo Conducted', 'Waiting on Agreement', 'Closed - Agreement Received', 'No Sale', 'Not Qualified'], label: "Deal Status" %>
+			<%= f.input :status, required: true, collection: ['Intro Presentation Scheduled', 'Intro Presentation Conducted', 'Waiting for NDA', 'Waiting for Supplier Data', 'Waiting for Supplier Match', 'SM / Demo Scheduled', 'SM / Demo Conducted', 'Waiting on Agreement', 'Closed - Agreement Received', 'No Sale', 'Not Qualified'], label: "Deal Status" %>
 			<%= f.button :submit, class:"btn btn-primary" %>
 		<% end %>
 	</div>
