@@ -16,24 +16,26 @@
         <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
         <%= f.input :password_confirmation, required: false %>
 
-        <% if current_user.admin %>
-          Admin&#63; <%= f.check_box :admin? %><br>
-          <br>
-          Manager&#63; <%= f.check_box :manager? %>
-        <% end %>
+        <!--<#% if current_user.admin %>-->
+          Admin&#63; <%= f.check_box :admin? %> &nbsp; | &nbsp; Manager&#63; <%= f.check_box :manager? %> &nbsp; | &nbsp; Suport&#63; <%= f.check_box :support? %>
+        <!--<#% end %>-->
         
         <p>&nbsp;</p>
         
       </div>
     
       <div class="form-actions">
-        <%= f.button :submit, "Update" %>
+        <%= f.button :submit, "Update", class:"btn btn-info btn-block" %>
       </div>
       
     <% end %>
     
+    <p>&nbsp;</p>
+		<div class="links">
+  		<%= link_to "Back", :back, class: "btn btn-default" %>
+      <%= link_to "Cancel my account", root_path, data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %>
+    </div>
     
     
-    <%= link_to "Back", :back %>
   </div>
 </div>
