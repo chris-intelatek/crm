@@ -3,7 +3,11 @@ class ProspectsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @prospects = Prospect.all.order("created_at DESC")
+    if params[:search]
+      @prospects = Prospect.search(params[:search]).order("created_at DESC")
+    else
+      @prospects = Prospect.all.order('created_at DESC')
+    end
   end
   
   def show
