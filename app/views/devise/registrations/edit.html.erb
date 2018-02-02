@@ -21,12 +21,10 @@
         <%= f.input :password_confirmation, required: false %>
         <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
         
-        <% if current_user.admin %>
           Admin&#63; <%= f.check_box :admin? %><br>
           <br>
           Manager&#63; <%= f.check_box :manager? %>
-        <% end %>
-        
+
         <p>&nbsp;</p>
         
       </div>
