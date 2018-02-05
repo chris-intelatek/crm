@@ -1,14 +1,16 @@
 <div class="col-md-12">
 
+	<center>
 	<%= form_tag(prospects_path, :method => "get", id: "search-form") do %>
-	<%= text_field_tag :search, params[:search], placeholder: "Search Prospects" %>
-	<%= submit_tag "Search", class:"btn btn-info" %>
+		<%= text_field_tag :search, params[:search], placeholder: "Search Prospects" %>
+		<%= submit_tag "Search", class:"btn btn-info" %>
+	<% end %>
+	</center>
 	<br>
 
 	<div class="prospect-show table-responsive">
 		<h2>Listing all Prospects</h2>
 
-	<% end %>
 		<table class="table index-table table-bordered table-condensed">
 		  <thead>
 		    <tr>
