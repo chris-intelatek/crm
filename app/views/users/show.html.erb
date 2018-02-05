@@ -1,6 +1,6 @@
-<div class="col-md-4 col-md-offset-4">
-	<div class="prospect-show">
-    <% if current_user.manager %>
+<% if current_user.manager || current_user.support %>
+  <div class="col-md-4 col-md-offset-4">
+  	<div class="prospect-show">
       <table>
         <tr>
           <td colspan="2"><h4><%= @user.advisor_first_name + ' ' + @user.advisor_last_name %></h4></td>
@@ -13,16 +13,13 @@
           <td>Email:</td><td><%= @user.email %></td>
         </tr>
       </table>
-    <% end %>
-    
-		<div class="links">
-			<%= link_to "Back", users_path, class: "btn btn-info" %>
-			<%= link_to "Edit", edit_user_path(@user), class: "btn btn-warning" %>
-			
-      <%= link_to "Delete", root_path, data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %>
-			
-			
-		</div>
-
+  
+  		<div class="links">
+  			<%= link_to "Back", users_path, class: "btn btn-info" %>
+  			<%= link_to "Edit", edit_user_path(@user), class: "btn btn-warning" %>
+  			
+        <%= link_to "Delete", root_path, data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %>
+  		</div>
+    </div>
   </div>
-</div>
+<% end %>

@@ -13,8 +13,8 @@
         	<%= @prospect.phone %><br>
         	<%= @prospect.website %><br>
         	Employees: <%= @prospect.employees %><br>
-			    Revenue: <%= number_to_currency(@prospect.revenue, precision: 0) %><br>
-        	Using VP Now? <% if @prospect.vc_already == true %> Yes <% else %> No <% end %>
+			    Annual Revenue: <%= number_to_currency(@prospect.revenue, precision: 0) %><br>
+        	Using VC for AP Now? <% if @prospect.vc_already == true %> Yes <% else %> No <% end %>
 		    </td>
 		    
 		    <td width="100">&nbsp;</td>
@@ -58,15 +58,15 @@
   	      Intro Pres Date: <% if !@prospect.intro_presentation_date.nil? %>
 				  <%= @prospect.intro_presentation_date.strftime("%m/%d/%Y") %><% end %><br>
 				  Intro Presented by: <%= @prospect.intro_presenter %><br>
-			    Estimated Ap: <%= number_to_currency(@prospect.estimated_ap, precision: 0) %><br>
-  	      Sm Received Date: <% if !@prospect.sm_received_date.nil? %>
+			    Est Annual AP: <%= number_to_currency(@prospect.estimated_ap, precision: 0) %><br>
+  	      SM Received Date: <% if !@prospect.sm_received_date.nil? %>
 				  <%= @prospect.sm_received_date.strftime("%m/%d/%Y") %><% end %>
   	    </td>
   	     
   	     <td width="100"></td>
   	     
   	    <td width="350" valign="top">
-          Actual Ap: <%= number_to_currency(@prospect.actual_ap, precision: 0) %><br>
+          Actual Annual AP: <%= number_to_currency(@prospect.actual_ap, precision: 0) %><br>
           SM Conversion Est: <%= number_to_currency(@prospect.sm_conversion_est, precision: 0) %><br>
           Conversion Percentage: <% if (@prospect.sm_conversion_est / @prospect.actual_ap) > 0.00001 %>
   		    <%= number_to_percentage((@prospect.sm_conversion_est / @prospect.actual_ap)*100, precision: 1) %><% end %><br>    

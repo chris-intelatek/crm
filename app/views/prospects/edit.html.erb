@@ -83,13 +83,13 @@
 			<%= f.input :contact2_email, label: "Email" %>
 			<hr>
 			<%= f.input :intro_presentation_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
-			<%= f.input :intro_presenter %>
-			<%= f.input :estimated_ap %>
+			<%= f.input :intro_presenter, label: "Intro Presentation (who presented?)" %>
+			<%= f.input :estimated_ap, label: "Estimated Annual AP (include all digits)" %>
 			
       <%= f.input :sm_received_date, {:include_blank => true, :default => nil, order: [:day, :month, :year], label: "Supplier Match Received Date" } %>
-      <%= f.input :actual_ap %>
-      <%= f.input :vc_already, label: "Using VP Already" %>
-      <%= f.input :sm_conversion_est %>
+      <%= f.input :actual_ap, label: "Actual Annual AP (include all digits)" %>
+      <%= f.input :vc_already, label: "Using VC for AP Already" %>
+      <%= f.input :sm_conversion_est, label: "SM Conversion Est (include all digits)" %>
       <%= f.input :sm_presentation_date, {:include_blank => true, :default => nil, order: [:day, :month, :year], label: "Supplier Match Presentation Date" } %>
 			<%= f.input :sm_presenter, label: "Supplier Match Presenter (who presented?)" %>
       <%= f.input :agreement_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
