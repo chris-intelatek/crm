@@ -1,10 +1,10 @@
 <div class="col-md-12">
 
 	<center>
-	<%= form_tag(prospects_path, :method => "get", id: "search-form") do %>
-		<%= text_field_tag :search, params[:search], placeholder: "Search Prospects" %>
-		<%= submit_tag "Search", class:"btn btn-info" %>
-	<% end %>
+		<%= form_tag(prospects_path, :method => "get", id: "search-form") do %>
+			<%= text_field_tag :search, params[:search], placeholder: "Search Prospects" %>
+			<%= submit_tag "Search", class:"btn btn-info" %>
+		<% end %>
 	</center>
 	<br>
 
@@ -23,7 +23,19 @@
 		      <th>SM Conversion<br>$ Estimate</th>
 		      <th>%<br>Converted</th>
 		      <th>SM & Demo<br>Presentation</th>
-		      <th>Deal<br>Status</th>
+		      <th>Deal 
+		      	<div class="status">
+			      	<li class="dropdown">
+							  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Status <span class="caret"></span></a>
+							  <ul class="dropdown-menu" style="list-style: none;">
+							    <li><%= link_to "All", prospects_path %></li>
+							    <% @status.each do |a| %>
+							      <li><strong><%= link_to "#{a.status}", prospects_path(status: a.status) %></strong></li>
+							    <% end %>
+							  </ul>
+							</li>
+						</div>
+					</th>
 		      <th>Agreement<br>Date</th>
 		    </tr>
 		  </thead>
@@ -33,7 +45,7 @@
 					<% if (prospect.user_id == current_user.id) || current_user.manager %>
 				    <tr>
 				      <td class="td-left"><%= prospect.user.advisor_first_name + ' ' + prospect.user.advisor_last_name %></td>
-				      <td><%= link_to prospect.organization, prospect, class:"btn btn-info btn-xs btn-block"	%></td>
+				      <td class="td-left"><strong><%= link_to prospect.organization, prospect %></strong></td>
 				      <td><% if !prospect.intro_presentation_date.nil? %>
 				      		<%= prospect.intro_presentation_date.strftime("%m/%d/%Y") %>
 				      		<% end %></td>
