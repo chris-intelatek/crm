@@ -1,5 +1,8 @@
-<div class="col-md-12">
+<% est_ap = 0 %>
+<% act_ap = 0 %>
+<% sm_conv = 0 %>
 
+<div class="col-md-12">
 	<center>
 		<%= form_tag(prospects_path, :method => "get", id: "search-form") do %>
 			<%= text_field_tag :search, params[:search], placeholder: "Search Prospects" %>
@@ -9,9 +12,8 @@
 	<br>
 
 	<div class="prospect-show table-responsive">
-		<h2>Listing all Prospects</h2>
-
-		<table class="table index-table table-bordered table-condensed">
+		<h2>Listing <%= @prospects.count %> Prospects</h2>
+		<table class="table index-table table-condensed">
 		  <thead>
 		    <tr>
 		      <th>Consultant</th>
@@ -40,7 +42,7 @@
 		    </tr>
 		  </thead>
 			
-		  <tbody>
+		  <tbody class="bordered">
 				<% @prospects.each do |prospect| %>
 					<% if (prospect.user_id == current_user.id) || current_user.manager %>
 				    <tr>
@@ -68,8 +70,28 @@
 				      </td>
 				    </tr>
 					<% end %>
+					<% est_ap = est_ap + prospect.estimated_ap %>
+					<% act_ap = act_ap + prospect.actual_ap %>
+					<% sm_conv = sm_conv + prospect.sm_conversion_est %>
 				<% end %>
 		  </tbody>
+		  <tfoot>		  
+				<tr>
+					<td>Total</td>
+					<td></td>
+					<td></td>
+					<td><%= number_to_currency(est_ap, precision: 0) %></td>
+					<td></td>
+					<td><%= number_to_currency(act_ap, precision: 0) %></td>
+					<td><%= number_to_currency(sm_conv, precision: 0) %></td>
+		      <td><% if (sm_conv / act_ap) > 0.00001 %>
+		      		<%= number_to_percentage((sm_conv / act_ap)*100, precision: 1) %>
+		      		<% end %></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+		  </tfoot>	
 		  
 		</table>
 		
