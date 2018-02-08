@@ -12,7 +12,15 @@
 	<br>
 
 	<div class="prospect-show table-responsive">
-		<h2>Listing <%= @prospects.count %> Prospects</h2>
+		
+		<h2>Listing
+			<% if current_user.manager %>
+ 				<%= @prospects.count %> Prospects</h2>
+			<% else %>
+				All
+			<% end %>
+		Prospects</h2>			
+		
 		<table class="table index-table table-condensed">
 		  <thead>
 		    <tr>
@@ -91,11 +99,8 @@
 					<td></td>
 					<td></td>
 				</tr>
-		  </tfoot>	
-		  
+		  </tfoot>
 		</table>
-		
-		<%= link_to "New Prospect", new_prospect_path, class: "btn btn-primary" %>
-	
+		<%= link_to "Add New Prospect", new_prospect_path, class: "btn btn-primary btn-lg" %>
 	</div>
 </div>
