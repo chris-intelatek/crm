@@ -15,7 +15,7 @@
 		
 		<h2>Listing
 			<% if current_user.manager %>
- 				<%= @prospects.count %> Prospects</h2>
+ 				<%= @prospects.count %>
 			<% else %>
 				All
 			<% end %>
@@ -52,7 +52,7 @@
 			
 		  <tbody class="bordered">
 				<% @prospects.each do |prospect| %>
-					<% if (prospect.user_id == current_user.id) || current_user.manager %>
+					<!--<% if current_user.manager? %>-->
 				    <tr>
 				      <td class="td-left"><%= prospect.user.advisor_first_name + ' ' + prospect.user.advisor_last_name %></td>
 				      <td class="td-left"><strong><%= link_to prospect.organization, prospect %></strong></td>
@@ -75,7 +75,6 @@
 				      <td><% if !prospect.agreement_date.nil? %>
 				      		<%= prospect.agreement_date.strftime("%m/%d/%Y") %>
 				      		<% end %></td>
-				      </td>
 				    </tr>
 					<% end %>
 					<% est_ap = est_ap + prospect.estimated_ap %>
@@ -92,8 +91,10 @@
 					<td></td>
 					<td><%= number_to_currency(act_ap, precision: 0) %></td>
 					<td><%= number_to_currency(sm_conv, precision: 0) %></td>
-		      <td><% if (sm_conv / act_ap) > 0.00001 %>
-		      		<%= number_to_percentage((sm_conv / act_ap)*100, precision: 1) %>
+		      <td><% if sm_conv > 0 && act_ap > 0 %>
+		      			<% if (sm_conv / act_ap) > 0.00001 %>
+		      				<%= number_to_percentage((sm_conv / act_ap)*100, precision: 1) %>
+		      			<% end %>
 		      		<% end %></td>
 					<td></td>
 					<td></td>
