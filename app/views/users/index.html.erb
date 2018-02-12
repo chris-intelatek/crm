@@ -2,7 +2,7 @@
   <div class="col-md-6 col-md-offset-3">
   	<div class="prospect-show">
   
-      <h2>Listing all Users</h2>
+      <h2>Listing <%= User.count %> Users</h2>
       <p><em>Please note: Only managers & support can see this page.</em></p>
   
     	<div class="prospect-show table-responsive">
@@ -10,16 +10,19 @@
           <thead>
             <tr>
               <th class="th-left">Name</th>
+              <th>Prospects</th>
               <th>Last Logged In</th>
               <th>Manager</th>
               <th>Support</th> 
             </tr>
           </thead>
-        
+                  
           <tbody>
             <% @users = User.all %>
               <% @users.each do |user| %>
               	<td class="td-left"><strong><%= link_to user.advisor_first_name + ' ' + user.advisor_last_name, user %></strong></td>
+              	<td><%= user.prospects.size %></td>
+              	</td>
               	<td><%= time_ago_in_words(user.last_sign_in_at) %> ago</td>
               	<td><% if user.manager == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
               	<td><% if user.support == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
