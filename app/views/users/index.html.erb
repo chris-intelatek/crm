@@ -23,7 +23,7 @@
               	<td class="td-left"><strong><%= link_to user.advisor_first_name + ' ' + user.advisor_last_name, user %></strong></td>
               	<td><%= user.prospects.size %></td>
               	</td>
-              	<td><%= time_ago_in_words(user.last_sign_in_at) %> ago</td>
+              	<td><%= time_ago_in_words(user.current_sign_in_at) %> ago</td>
               	<td><% if user.manager == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
               	<td><% if user.support == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
       		    </tr>

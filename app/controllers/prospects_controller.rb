@@ -8,7 +8,7 @@ class ProspectsController < ApplicationController
       if params[:search]
         @prospects = Prospect.search(params[:search]).order("created_at DESC")
       else
-        @prospects = Prospect.all.order('created_at DESC')
+        @prospects = Prospect.all.order('user_id DESC')
       end
 
     else
