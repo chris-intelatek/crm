@@ -27,7 +27,7 @@
 		      <th>Consultant</th>
 		      <th>Prospect</th>
 		      <th>Intro<br>Presentation</th>
-     			<% if current_user.manager %>
+     			<% if current_user.admin %>
 						<th>Presented by</th>
 					<% end %>
 		      <th>Estimated<br>Annual AP</th>
@@ -62,7 +62,7 @@
 				      <td><% if !prospect.intro_presentation_date.nil? %>
 				      		<%= prospect.intro_presentation_date.strftime("%m/%d/%Y") %>
 				      		<% end %></td>
-			     		<% if current_user.manager %>
+			     		<% if current_user.admin %>
 								<td><%= prospect.intro_presenter %></td>
 				      <% end %>
 				      <td><%= number_to_currency(prospect.estimated_ap, precision: 0) %></td>
@@ -94,7 +94,7 @@
 						<td>Total</td>
 						<td></td>
 						<td></td>
-	     			<% if current_user.manager %>
+	     			<% if current_user.admin %>
 							<td></td>
 						<% end %>
 						<td><%= number_to_currency(est_ap, precision: 0) %></td>
