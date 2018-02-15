@@ -68,6 +68,7 @@
 			<%= f.input :contact1_email, label: "Email" %>
 			<hr>
 			<%= f.input :intro_presentation_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
+			<%= f.input :intro_presenter, label: "Intro Presentation (who presented?)" %>
 			<%= f.input :estimated_ap %>
 			<%= f.input :prospect_note, label: "Note" %>
 			<%= f.input :status, required: true, collection: ['Intro Presentation Scheduled', 'Intro Presentation Conducted', 'Waiting for NDA', 'Waiting for Supplier Data', 'Waiting for Supplier Match', 'SM / Demo Scheduled', 'SM / Demo Conducted', 'Waiting on Agreement', 'Closed - Agreement Received', 'No Sale', 'Not Qualified'], label: "Deal Status" %>
