@@ -59,7 +59,7 @@
 				  <%= @prospect.intro_presentation_date.strftime("%m/%d/%Y") %><% end %><br>
 				  Intro Presented by: <%= @prospect.intro_presenter %><br>
 			    Est Annual AP: <%= number_to_currency(@prospect.estimated_ap, precision: 0) %><br>
-  	      SM Received Date: <% if !@prospect.sm_received_date.nil? %>
+  	      SM Data Received Date: <% if !@prospect.sm_received_date.nil? %>
 				  <%= @prospect.sm_received_date.strftime("%m/%d/%Y") %><% end %>
   	    </td>
   	     

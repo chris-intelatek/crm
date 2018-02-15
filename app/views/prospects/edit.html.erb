@@ -86,7 +86,7 @@
 			<%= f.input :intro_presenter, label: "Intro Presentation (who presented?)" %>
 			<%= f.input :estimated_ap, label: "Estimated Annual AP (include all digits)" %>
 			
-      <%= f.input :sm_received_date, {:include_blank => true, :default => nil, order: [:day, :month, :year], label: "Supplier Match Received Date" } %>
+      <%= f.input :sm_received_date, {:include_blank => true, :default => nil, order: [:day, :month, :year], label: "Supplier Match Data Received Date" } %>
       <%= f.input :actual_ap, label: "Actual Annual AP (include all digits)" %>
       <%= f.input :vc_already, label: "Using VC for AP Already" %>
       <%= f.input :sm_conversion_est, label: "SM Conversion Est (include all digits)" %>
