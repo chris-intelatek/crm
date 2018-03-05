@@ -61,7 +61,7 @@
 				      		<%= prospect.intro_presentation_date.strftime("%m/%d/%Y") %>
 				      		<% end %></td>
 				      <td><% if !prospect.intro_presentation_date.nil? %>
-              		<%= time_ago_in_words(prospect.intro_presentation_date) %>
+              		<%= (Date.today - prospect.intro_presentation_date).to_i %> days
 				      		<% end %></td>
 				      <td><%= number_to_currency(prospect.estimated_ap, precision: 0) %></td>
 				      <td><% if !prospect.sm_received_date.nil? %>
