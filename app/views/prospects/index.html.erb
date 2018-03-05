@@ -27,9 +27,7 @@
 		      <th>Consultant</th>
 		      <th>Prospect</th>
 		      <th>Intro<br>Presentation</th>
-     			<% if current_user.admin %>
-						<th>Presented by</th>
-					<% end %>
+					<th>Days Since<br>Intro Pres</th>
 		      <th>Estimated<br>Annual AP</th>
 		      <th>SM Data<br>Received</th>
 		      <th>Actual AP</th>
@@ -62,9 +60,9 @@
 				      <td><% if !prospect.intro_presentation_date.nil? %>
 				      		<%= prospect.intro_presentation_date.strftime("%m/%d/%Y") %>
 				      		<% end %></td>
-			     		<% if current_user.admin %>
-								<td><%= prospect.intro_presenter %></td>
-				      <% end %>
+				      <td><% if !prospect.intro_presentation_date.nil? %>
+              		<%= time_ago_in_words(prospect.intro_presentation_date) %>
+				      		<% end %></td>
 				      <td><%= number_to_currency(prospect.estimated_ap, precision: 0) %></td>
 				      <td><% if !prospect.sm_received_date.nil? %>
 				      		<%= prospect.sm_received_date.strftime("%m/%d/%Y") %>
