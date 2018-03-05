@@ -60,7 +60,7 @@
 				      <td><% if !prospect.intro_presentation_date.nil? %>
 				      		<%= prospect.intro_presentation_date.strftime("%m/%d/%Y") %>
 				      		<% end %></td>
-				      <td><% if !prospect.intro_presentation_date.nil? %>
+				      <td><% if !prospect.intro_presentation_date.nil? && (prospect.intro_presentation_date < Date.today) %>
               		<%= (Date.today - prospect.intro_presentation_date).to_i %> days
 				      		<% end %></td>
 				      <td><%= number_to_currency(prospect.estimated_ap, precision: 0) %></td>
