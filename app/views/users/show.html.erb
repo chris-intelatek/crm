@@ -16,8 +16,7 @@
   
   		<div class="links">
   			<%= link_to "Back", users_path, class: "btn btn-info" %>
-  			<%= link_to "Edit", edit_user_path(@user), class: "btn btn-warning" %>
-  			
+  			<%= link_to "Edit User", edit_user_path(@user), class: "btn btn-warning" %>
         <%= link_to "Delete", root_path, data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %>
   		</div>
     </div>

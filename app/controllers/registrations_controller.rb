@@ -10,3 +10,4 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:advisor_first_name, :advisor_last_name, :advisor_phone, :advisor_mobile, :admin, :manager, :email, :password, :password_confirmation, :current_password)
   end
 end
+
