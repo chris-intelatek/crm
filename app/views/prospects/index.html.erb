@@ -13,13 +13,7 @@
 
 	<div class="prospect-show table-responsive">
 		
-		<h2>Listing
-			<% if current_user.manager %>
- 				<%= @prospects.count %>
-			<% else %>
-				All
-			<% end %>
-		Prospects</h2>			
+		<h3>Listing <%= @prospects.count %>	Prospects</h3>			
 		
 		<table class="table index-table table-condensed">
 		  <thead>
@@ -29,11 +23,11 @@
 		      <th>Intro<br>Presentation</th>
 					<th>Days Since<br>Intro Pres</th>
 		      <th>Estimated<br>Annual AP</th>
-		      <th>SM Data<br>Received</th>
 		      <th>Actual AP</th>
 		      <th>SM Conversion<br>$ Estimate</th>
 		      <th>%<br>Converted</th>
 		      <th>SM & Demo<br>Presentation</th>
+		      <th>Days Since<br>Intro Pres</th>
 		      <th>Deal 
 		      	<div class="status">
 			      	<li class="dropdown">
@@ -64,9 +58,6 @@
               		<%= (Date.today - prospect.intro_presentation_date).to_i %> days
 				      		<% end %></td>
 				      <td><%= number_to_currency(prospect.estimated_ap, precision: 0) %></td>
-				      <td><% if !prospect.sm_received_date.nil? %>
-				      		<%= prospect.sm_received_date.strftime("%m/%d/%Y") %>
-				      		<% end %></td>
 				      <td><%= number_to_currency(prospect.actual_ap, precision: 0) %></td>
 				      <td><%= number_to_currency(prospect.sm_conversion_est, precision: 0) %></td>
 				      <td><% if (prospect.sm_conversion_est / prospect.actual_ap) > 0.00001 %>
@@ -75,6 +66,11 @@
 				      <td><% if !prospect.sm_presentation_date.nil? %>
 				      		<%= prospect.sm_presentation_date.strftime("%m/%d/%Y") %>
 				      		<% end %></td>
+				      		
+				      <td><% if !prospect.sm_presentation_date.nil? && (prospect.sm_presentation_date < Date.today) %>
+              		<%= (Date.today - prospect.sm_presentation_date).to_i %> days
+				      		<% end %></td>
+				      		
 				      <td><%= prospect.status %></td>
 				      <td><% if !prospect.agreement_date.nil? %>
 				      		<%= prospect.agreement_date.strftime("%m/%d/%Y") %>
@@ -94,7 +90,6 @@
 						<td></td>
 						<td></td>
 						<td><%= number_to_currency(est_ap, precision: 0) %></td>
-						<td></td>
 						<td><%= number_to_currency(act_ap, precision: 0) %></td>
 						<td><%= number_to_currency(sm_conv, precision: 0) %></td>
 			      <td><% if sm_conv > 0 && act_ap > 0 %>
@@ -102,6 +97,7 @@
 			      				<%= number_to_percentage((sm_conv / act_ap)*100, precision: 1) %>
 			      			<% end %>
 			      		<% end %></td>
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
