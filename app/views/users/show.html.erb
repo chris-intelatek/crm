@@ -18,11 +18,12 @@
   		<div class="links">
   			<%= link_to "Back", users_path, class: "btn btn-info" %>
   			<%= link_to "Edit User", edit_user_path(@user), class: "btn btn-warning" %>
-        <%= link_to "Delete", root_path, data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %>
+        <%= link_to "Delete User", root_path, data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %>
   		</div>
     </div>
   </div>
 <% end %>
+  
   
   
 <% if current_user.manager %>
@@ -32,14 +33,10 @@
   <% sm_conv = 0 %>
 
   <div class="col-md-12">
-
   	<p>&nbsp;</p>
   	<p>&nbsp;</p>
-  
   	<div class="prospect-show table-responsive">
-  		
   		<h3>Listing <%= @user.prospects.count %> Prospects</h3>
-  		
   		<table class="table index-table table-condensed">
   		  <thead>
   		    <tr>
@@ -56,7 +53,6 @@
   		      <th>Agreement<br>Date</th>
   		    </tr>
   		  </thead>
-  			
   		  <tbody class="bordered">
   				<% @user.prospects.each do |prospect| %>
   					<% if (prospect.user_id == current_user.id) || current_user.manager %>
@@ -93,7 +89,6 @@
   					<% sm_conv = sm_conv + prospect.sm_conversion_est %>
   				<% end %>
   		  </tbody>
-  		  
 			  <tfoot>		  
 					<tr>
 						<td>Total</td>
