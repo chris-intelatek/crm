@@ -13,7 +13,13 @@
 
 	<div class="prospect-show table-responsive">
 		
-		<h3>Listing <%= @prospects.count %>	Prospects</h3>			
+		<h3>Listing
+			<% if current_user.manager %>
+ 				<%= @prospects.count %>
+			<% else %>
+				All
+			<% end %>
+		Prospects</h3>
 		
 		<table class="table index-table table-condensed">
 		  <thead>

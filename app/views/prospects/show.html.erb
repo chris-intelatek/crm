@@ -5,6 +5,15 @@
 		@prospect.user.advisor_last_name %> <%= time_ago_in_words(@prospect.created_at) %> ago  
 		and last updated <%= time_ago_in_words(@prospect.updated_at) %> ago.</p>
 		
+		<p>
+		  <% if @prospect.status == "Intro Presentation Conducted" ||
+		        @prospect.status == "SM / Demo Conducted" ||
+		        @prospect.status == "No Sale" %>
+		    <div class="alert alert-danger"><strong>IMPORTANT MESSAGE:</strong><br>
+		    <em>Please update the status of this prospect. "<strong><%= @prospect.status  %></strong>" is no longer a valid status.</em></div>
+		  <% end %>
+		</p>
+		
 		<table align="center">
 		  <tr>
 		    <td width="350" valign="top">
@@ -83,9 +92,12 @@
 				  SM Presented by: <%= @prospect.sm_presenter %><br>
   	    </td>
   	     
-  	     <td width="100"></td>
+        <td width="100"></td>
   	     
   	    <td width="350" valign="top">
+  	      Proposed Close Date/<br>
+  	      Kickoff Call Date: <% if !@prospect.close_date.nil? %>
+				  <%= @prospect.close_date.strftime("%m/%d/%Y") %><% end %>
   	      Agreement Date: <% if !@prospect.agreement_date.nil? %>
 				  <%= @prospect.agreement_date.strftime("%m/%d/%Y") %><% end %>	
   	     </td>
@@ -95,6 +107,15 @@
   	
 		<table>
 		  <tr>
+		    <td>References Provided: 
+		      <% if @prospect.references_given == true %>
+	          YES
+	        <% else %>
+	          NO
+	        <% end %> 
+        </td>
+		  </tr>
+		  <tr>
 		    <td>&nbsp;</td>
 		  </tr>
 		  <tr>
@@ -103,7 +124,6 @@
 		  <tr>
 		    <td>&nbsp;</td>
 		  </tr>
-		  
 		</table>
 
 		<hr>
