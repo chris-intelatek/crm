@@ -106,7 +106,7 @@
 																				'SM Demo Given - No Sale',
 																				'Not Qualified'
 																				], label: "Deal Status" %>
-      <%= f.input :close_date, {:include_blank => true, :default => nil, order: [:day, :month, :year], label: "Kickoff Call or Proposed Close Date" } %>
+      <%= f.input :close_date, {:label => "Kickoff Call or Proposed Close Date", :include_blank => true, :default => nil, order: [:day, :month, :year] } %>
 			<%= f.input :references_given, as: :boolean, label: "References Given" %>
       <%= f.input :agreement_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
       <br>
