@@ -92,10 +92,24 @@
       <%= f.input :sm_conversion_est, label: "SM Conversion Est (include all digits)" %>
       <%= f.input :sm_presentation_date, {:include_blank => true, :default => nil, order: [:day, :month, :year], label: "Supplier Match Presentation Date" } %>
 			<%= f.input :sm_presenter, label: "Supplier Match Presenter (who presented?)" %>
-      <%= f.input :agreement_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
-	
 			<%= f.input :prospect_note, label: "Note" %>
-			<%= f.input :status, collection: ['Intro Presentation Scheduled', 'Waiting for NDA', 'Waiting for Supplier Data', 'Waiting for Supplier Match', 'Scheduling SM / Demo', 'SM / Demo Scheduled', 'Waiting on Agreement', 'Closed - Agreement Received', 'No Sale', 'Not Qualified'], label: "Deal Status" %>
+			<%= f.input :status, collection: [
+																				'Intro Presentation Scheduled',
+																				'Waiting for NDA',
+																				'Waiting for Supplier Data',
+																				'Waiting for Supplier Match',
+																				'Scheduling SM / Demo',
+																				'SM / Demo Scheduled',
+																				'Waiting on Agreement',
+																				'Closed - Agreement Received',
+																				'Intro Pres Given - No Sale',
+																				'SM Demo Given - No Sale',
+																				'Not Qualified'
+																				], label: "Deal Status" %>
+      <%= f.input :close_date, {:include_blank => true, :default => nil, order: [:day, :month, :year], label: "Kickoff Call or Proposed Close Date" } %>
+			<%= f.input :references_given, as: :boolean, label: "References Given" %>
+      <%= f.input :agreement_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
+      <br>
 			<%= f.button :submit, class:"btn btn-primary" %>
 		<% end %>
 	</div>

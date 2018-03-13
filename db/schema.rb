@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202044302) do
+ActiveRecord::Schema.define(version: 20180313164149) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20180202044302) do
     t.integer  "primary_contact"
     t.string   "intro_presenter"
     t.string   "sm_presenter"
+    t.date     "close_date"
+    t.boolean  "references_given",        default: false
   end
 
   create_table "users", force: :cascade do |t|

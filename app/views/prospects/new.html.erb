@@ -71,7 +71,19 @@
 			<%= f.input :intro_presenter, label: "Intro Presentation (who presented?)" %>
 			<%= f.input :estimated_ap %>
 			<%= f.input :prospect_note, label: "Note" %>
-			<%= f.input :status, collection: ['Intro Presentation Scheduled', 'Waiting for NDA', 'Waiting for Supplier Data', 'Waiting for Supplier Match', 'Scheduling SM / Demo', 'SM / Demo Scheduled', 'Waiting on Agreement', 'Closed - Agreement Received', 'No Sale', 'Not Qualified'], label: "Deal Status" %>
+			<%= f.input :status, collection: [
+																				'Intro Presentation Scheduled',
+																				'Waiting for NDA',
+																				'Waiting for Supplier Data',
+																				'Waiting for Supplier Match',
+																				'Scheduling SM / Demo',
+																				'SM / Demo Scheduled',
+																				'Waiting on Agreement',
+																				'Closed - Agreement Received',
+																				'Intro Pres Given - No Sale',
+																				'SM Demo Given - No Sale',
+																				'Not Qualified'
+																				], label: "Deal Status" %>
 			<%= f.button :submit, class:"btn btn-primary" %>
 		<% end %>
 	</div>
