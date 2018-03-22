@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313164149) do
+ActiveRecord::Schema.define(version: 20180322163623) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20180313164149) do
     t.string   "advisor_phone"
     t.string   "advisor_mobile"
     t.boolean  "support",                default: false
+    t.string   "group"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

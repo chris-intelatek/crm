@@ -10,6 +10,7 @@
           <thead>
             <tr>
               <th class="th-left">Name</th>
+              <th>Group</th>
               <th>Prospects</th>
               <th>Last Logged In</th>
               <th>Manager</th>
@@ -21,8 +22,8 @@
             <% @users = User.all %>
               <% @users.each do |user| %>
               	<td class="td-left"><strong><%= link_to user.advisor_first_name + ' ' + user.advisor_last_name, user %></strong></td>
+              	<td><%= user.group %></td> 
               	<td><%= user.prospects.size %></td>
-              	</td>
               	<td><%= time_ago_in_words(user.current_sign_in_at) %> ago</td>
               	<td><% if user.manager == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
               	<td><% if user.support == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>

@@ -16,9 +16,9 @@
       </table>
   
   		<div class="links">
-  			<%= link_to "Back", users_path, class: "btn btn-info" %>
+  			<%= link_to "Back", users_path, class: "btn btn-info" %> &nbsp;&nbsp;
   			<%= link_to "Edit User", edit_user_path(@user), class: "btn btn-warning" %>
-        <%= link_to "Delete User", root_path, data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %>
+        <%#= link_to "Delete User", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %>
   		</div>
     </div>
   </div>

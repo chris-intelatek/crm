@@ -27,6 +27,7 @@ class ProspectsController < ApplicationController
   def create
     @prospect = current_user.prospects.build(prospect_params)
     if @prospect.save
+      flash[:success] = "New prospect added."
       redirect_to root_path
     else
       render 'new'
@@ -38,6 +39,7 @@ class ProspectsController < ApplicationController
   
   def update
     if @prospect.update(prospect_params)
+      flash[:success] = "Prospect has been updated."
       redirect_to prospect_path
     else
       render 'edit'
@@ -46,6 +48,7 @@ class ProspectsController < ApplicationController
   
   def destroy
     @prospect.destroy
+    flash[:danger] = "Prospect has been deleted."
     redirect_to root_path
   end
 

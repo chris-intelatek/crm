@@ -16,6 +16,7 @@
         <%= f.input :password_confirmation %>
 
         <% if current_user.admin %>
+          <%= f.input :group, required: true %>
           Admin&#63; <%= f.check_box :admin? %> &nbsp; | &nbsp; Manager&#63; <%= f.check_box :manager? %> &nbsp; | &nbsp; Suport&#63; <%= f.check_box :support? %>
         <% end %>
         
@@ -31,10 +32,11 @@
     
     <p>&nbsp;</p>
 		<div class="links">
-  		<%= link_to "Back", :back, class: "btn btn-default" %>
-      <%= link_to "Cancel my account", root_path, data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %>
+  		<%= link_to "Back", :back, class: "btn btn-default" %> &nbsp;&nbsp;
+      <%= link_to "Delete User", user_path(@user), data: { confirm: "Caution: Deleteing a user will delete all of their prospects and associated comments." }, method: :delete, class:"btn btn-danger" %>
     </div>
-    
+    <br>
+    <em>Caution: Deleteing a user will delete all of their prospects and associated comments.</em>
     
   </div>
 </div>
