@@ -13,14 +13,10 @@ Author Chris Cunningham -->
 
 		<%= render 'layouts/nav' %>
 
-    <p class="notice"><%= flash[:notice] %></p>
-    <p class="alert"><%= flash[:alert] %></p>
-    
-    <% flash.each do |key, value| %>            
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-    
     <div class="container-fluid">
+
+      <%= render 'layouts/messages' %>       
+
     	<%= yield %>
     </div>
  
