@@ -4,7 +4,7 @@ class Prospect < ActiveRecord::Base
   validates :organization, :presence => true
   
   def self.search(query)
-    where("organization like ?", "%#{query}%")
+    where("LOWER(organization) like ?", "%#{query.downcase}%")
   end
   
 end
