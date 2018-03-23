@@ -10,5 +10,9 @@ class User < ActiveRecord::Base
   def password_required?
     false
   end
+  
+  def advisor_name
+    [advisor_first_name, advisor_last_name].join(' ')
+  end
 
 end
