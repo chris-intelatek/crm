@@ -19,14 +19,14 @@
           </thead>
                   
           <tbody>
-            <% @users = User.all %>
-              <% @users.each do |user| %>
-              	<td class="td-left"><strong><%= link_to user.advisor_name, user %></strong></td>
-              	<td><%= user.group %></td> 
-              	<td><%= user.prospects.size %></td>
-              	<td><%= time_ago_in_words(user.current_sign_in_at) if user.current_sign_in_at %> ago</td>
-              	<td><% if user.manager == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
-              	<td><% if user.support == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
+            <% @users.each do |user| %>
+              <tr>
+              	<td class="td-left"><%= image_tag avatar_url(user, 40) %> &nbsp; <strong><%= link_to user.advisor_name, user %></strong></td>
+              	<td style="vertical-align:middle"><%= user.group %></td> 
+              	<td style="vertical-align:middle"><%= user.prospects.size %></td>
+              	<td style="vertical-align:middle"><%= time_ago_in_words(user.current_sign_in_at) if user.current_sign_in_at %> ago</td>
+              	<td style="vertical-align:middle"><% if user.manager == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
+              	<td style="vertical-align:middle"><% if user.support == true %><span class="glyphicon glyphicon-ok"></span><% end %></td>
       		    </tr>
         		<% end %>
           </tbody>

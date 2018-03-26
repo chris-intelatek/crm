@@ -1,39 +1,26 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- 
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display|Muli:300,400);
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-/* General styles */
-
-
-body {
-  padding-top: 90px;
-  padding-bottom: 60px;
-    background: url("http://www.intelatek.com/images/8732.jpeg") no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+.pages {
+    background: rgba(255,255,255, 0.9);
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-radius: 10px;
 }
-
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Muli', sans-serif;
 	font-weight: 300;
+	color: #7CB25B;
 	text-transform: capitalize;
+}
+
+.dark-box {
+	box-sizing: border-box;
+	background-color: #383838;
+	padding: 2.0em 1.5em;
+	/* border-bottom: 4px solid #0a8fd5; */
+	color: #fff;
+	font-family: 'Muli', sans-serif;
+	font-weight: 300;  
 }
 
 .btn-custom {
@@ -76,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-brand {
   padding: 0px;
 }
+
 .navbar-brand>img {
   height: 100%;
   padding: 1px;
@@ -125,6 +113,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Prospect show-page styles */
+
 
 .prospect-show {
 	box-sizing: border-box;
@@ -193,16 +182,16 @@ h1, h2, h3, h4, h5, h6 {
     vertical-align:middle;
 	}
 	a:link {
-    color: #5bc0de;
+    color: #7CB25B;
 	}
 	a:visited {
-	    color: #5bc0de;
+	  color: #7CB25B;
 	}
 	a:hover {
-	    color: #5bc0de;
+	  color: #7CB25B;
 	}
 	a:active {
-	    color: #5bc0de;
+	  color: #7CB25B;
 	}
 }
 
@@ -220,21 +209,25 @@ tfoot {
 
 .status {
 	list-style-type: none;
+}
+
+.status-menu {
+	list-style-type: none;
 	a:link {
   	text-decoration: none;
-    color: #5bc0de;
+    color: #000000;
 	}
 	a:visited {
 		text-decoration: none;
-  	color: #5bc0de;
+  	color: #000000;
 	}
 	a:hover {
 	  text-decoration: none;
-    color: #5bc0de;
+    color: #000000;
 	}
 	a:active {
 	  text-decoration: underline;
-    color: #5bc0de;
+    color: #000000;
 	}
 }
 
@@ -244,29 +237,46 @@ tfoot {
 
 /*flash*/
 .alert-error {
-    background-color: #f2dede;
-    border-color: #eed3d7;
-    color: #b94a48;
-    text-align: left;
- }
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
 
 .alert-alert {
-    background-color: #f2dede;
-    border-color: #eed3d7;
-    color: #b94a48;
-    text-align: left;
- }
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
 
 .alert-success {
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-    color: #468847;
-    text-align: left;
- }
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
 
 .alert-notice {
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-    color: #468847;
-    text-align: left;
- }
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+ 
+.btn-kontrol {
+	background-color: #7BB15B;
+	border-color: #7BB15B;
+	color: #ffffff;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #7BB15B;
+}
