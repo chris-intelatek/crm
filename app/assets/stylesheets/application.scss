@@ -23,7 +23,7 @@
 body {
   padding-top: 90px;
   padding-bottom: 60px;
-    background: url(<%= asset_path "8732.jpg" %>) no-repeat;
+    background: asset-url("8732.jpg") no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
