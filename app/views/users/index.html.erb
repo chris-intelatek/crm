@@ -2,7 +2,7 @@
   <div class="col-md-6 col-md-offset-3">
   	<div class="prospect-show">
   
-      <h2>Listing <%= User.count %> Users</h2>
+      <h3>Listing <%= User.count %> Users</h3>
       <p><em>Please note: Only managers & support can see this page.</em></p>
   
     	<div class="prospect-show table-responsive">
@@ -21,7 +21,7 @@
           <tbody>
             <% @users.each do |user| %>
               <tr>
-              	<td class="td-left"><%#= image_tag avatar_url(user, 40) %> &nbsp; <strong><%= link_to user.advisor_name, user %></strong></td>
+              	<td class="td-left"><%#= image_tag avatar_url(user, 40) %> &nbsp; <%= link_to user.advisor_name, user %></td>
               	<td style="vertical-align:middle"><%= user.group %></td> 
               	<td style="vertical-align:middle"><%= user.prospects.size %></td>
               	<td style="vertical-align:middle"><%= time_ago_in_words(user.current_sign_in_at) if user.current_sign_in_at %> ago</td>
@@ -34,8 +34,8 @@
         </table>
       </div>
       <hr>
-      
-      <h2>Future Features</h2>
+      <p>&nbsp;</p>
+      <h4>Future Features</h4>
       <p>I put this CRM together as quick as I could, with a focus on what the advisors need to be able to start tracking their deals and for us to be able to access, and add, notes, etc.</p>
       <p>Over the next month or two, I intend to add the following features, between other more urgent tasks:
       <ul>
