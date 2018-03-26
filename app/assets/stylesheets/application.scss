@@ -27,3 +27,286 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+
+.pages {
+    background: rgba(255,255,255, 0.9);
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Muli', sans-serif;
+	font-weight: 300;
+	color: #7CB25B;
+	text-transform: capitalize;
+}
+
+.dark-box {
+	box-sizing: border-box;
+	background-color: #383838;
+	padding: 2.0em 1.5em;
+	/* border-bottom: 4px solid #0a8fd5; */
+	color: #fff;
+	font-family: 'Muli', sans-serif;
+	font-weight: 300;  
+}
+
+.btn-custom {
+	background-color: #fff;
+	color: #0a8fd5;
+	font-family: 'Muli', sans-serif; 
+	font-weight: 300;
+	border-radius: 8px;
+	padding: 10px 20px;
+	&:hover {
+		color: #383838;
+		transition: 0.5s;
+		background-color: #fff;
+		text-decoration: none;
+	}
+}
+
+.btn:hover {
+	transition: 0.5s;
+	color: #383838;
+	background-color: #fff;
+}
+
+
+/* Navbar styles */
+
+.navbar {
+	font-family: 'Muli', sans-serif;
+}
+
+.navbar-default {
+	.navbar-nav > li > a {
+		color: gray;
+	}
+	.navbar-link {
+		color: gray;
+	}
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand>img {
+  height: 100%;
+  padding: 1px;
+  width: auto;
+}
+
+
+/* Links styles */
+
+.links {
+	margin-top: 20px;
+	.btn-default {
+		color: #0a8fd5;
+	}
+}
+
+
+/* Prospect styles */
+
+.prospect {
+	box-sizing: border-box;
+	background-color: #383838;
+	margin-bottom: 25px;
+	margin-right: 10px;
+	margin-left: 10px;
+	padding: 1.4em 1.4em;
+	height: 150px;
+	border-bottom: 4px solid #0a8fd5;
+
+	.prospect-title {
+		font-size: 1.5em;
+		font-family: 'Muli', sans-serif;
+		font-weight: 300;
+		margin-top: 0;
+		color: white;
+		margin-bottom: 25px;
+	}
+
+	.btn-custom {
+		margin-top: 20px;
+	}
+
+}
+
+.prospect:nth-child(4n) {
+	clear: left;
+}
+
+/* Prospect show-page styles */
+
+
+.prospect-show {
+	box-sizing: border-box;
+	background-color: #383838;
+	padding: 2.0em 1.5em;
+	/* border-bottom: 4px solid #0a8fd5; */
+	color: #fff;
+	font-family: 'Muli', sans-serif;
+	font-weight: 300;
+
+	h2 {
+		margin-top: 0;
+	}
+
+	.prospect-desc {
+		font-size: 1.1em;
+		line-height: 1.75;
+		margin-bottom: 50px;
+	}
+
+	.prospect-posted-by {
+		color: #eee;
+		font-size: 0.9em;
+	}
+
+	.reply-to-prospect {
+		margin-top: 50px;
+	}
+
+}
+
+
+/* Comment styles */
+
+.comment {
+	border-bottom: 1px solid #fff;
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	.comment-content {
+		font-size: 1.25em;
+	}	
+
+	.comment-posted-by {
+		color: #eee;
+		font-size: 0.8em;
+	}
+
+	.links {
+		margin-top: 15px;
+		a {
+			color: #5bc0de;
+			//color: #0a8fd5;
+			margin-right: 15px;
+		}
+	}
+}
+
+.index-table {
+	td, th {
+    text-align:center; 
+    vertical-align:middle;
+	}
+	.td-left, .th-left {
+    text-align:left; 
+    vertical-align:middle;
+	}
+	a:link {
+    color: #7CB25B;
+	}
+	a:visited {
+	  color: #7CB25B;
+	}
+	a:hover {
+	  color: #7CB25B;
+	}
+	a:active {
+	  color: #7CB25B;
+	}
+}
+
+tfoot {
+	color:white;
+	font-weight: bold;
+}
+
+.bordered {
+	td {
+    border: 1px solid;
+	}
+}
+
+
+.status {
+	list-style-type: none;
+}
+
+.status-menu {
+	list-style-type: none;
+	a:link {
+  	text-decoration: none;
+    color: #000000;
+	}
+	a:visited {
+		text-decoration: none;
+  	color: #000000;
+	}
+	a:hover {
+	  text-decoration: none;
+    color: #000000;
+	}
+	a:active {
+	  text-decoration: underline;
+    color: #000000;
+	}
+}
+
+.center {
+  text-align: center;
+}
+
+/*flash*/
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-alert {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+ 
+.btn-kontrol {
+	background-color: #7BB15B;
+	border-color: #7BB15B;
+	color: #ffffff;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #7BB15B;
+}

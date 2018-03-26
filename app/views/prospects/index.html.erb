@@ -1,4 +1,3 @@
-<% if current_user.group == "ip" %>
 
 <% est_ap = 0 %>
 <% act_ap = 0 %>
@@ -116,7 +115,3 @@
 		<%= link_to "Add New Prospect", new_prospect_path, class: "btn btn-kontrol btn-lg" %>
 	</div>
 </div>
-
-<% else %>
-Wrong Group
-<% end %>
