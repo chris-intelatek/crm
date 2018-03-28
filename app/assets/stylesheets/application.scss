@@ -50,7 +50,19 @@ h1, h2, h3, h4, h5, h6 {
 	/* border-bottom: 4px solid #0a8fd5; */
 	color: #fff;
 	font-family: 'Muli', sans-serif;
-	font-weight: 300;  
+	font-weight: 300;
+	a:link {
+    color: #7CB25B;
+	}
+	a:visited {
+	  color: #7CB25B;
+	}
+	a:hover {
+	  color: #7CB25B;
+	}
+	a:active {
+	  color: #7CB25B;
+	}
 }
 
 .btn-custom {
