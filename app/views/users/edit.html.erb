@@ -15,7 +15,7 @@
         <%= f.input :password, autocomplete: "off", required: false %>
         <%= f.input :password_confirmation %>
 
-        <% if current_user.admin %>
+        <% if current_user.admin || if current_user.manager %>
           <%= f.input :group, required: true %>
           Admin&#63; <%= f.check_box :admin? %> &nbsp; | &nbsp; Manager&#63; <%= f.check_box :manager? %> &nbsp; | &nbsp; Suport&#63; <%= f.check_box :support? %>
         <% end %>
