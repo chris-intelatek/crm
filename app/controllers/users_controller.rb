@@ -2,9 +2,22 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
   before_action :set_user, only: [:show, :edit, :destroy, :update]
 
+
+
   def index
-  	@users = User.all
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    else
+      @users = User.all
+    end
   end
+
+
+
+
+  # def index
+  # 	@users = User.all
+  # end
 
   def show
   end

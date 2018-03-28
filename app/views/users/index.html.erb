@@ -1,5 +1,13 @@
 <% if current_user.manager || current_user.support %>
   <div class="col-md-6 col-md-offset-3">
+    
+  	<center>
+  		<%= form_tag(users_path, :method => "get", id: "search-form") do %>
+  			<%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+  			<%= submit_tag "Search", class:"btn btn-kontrol" %>
+  		<% end %>
+	  </center>
+    <br>
   	<div class="prospect-show">
   
       <h3>Listing <%= User.count %> Users</h3>
