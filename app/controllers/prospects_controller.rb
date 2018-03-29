@@ -28,7 +28,7 @@ class ProspectsController < ApplicationController
     @prospect = current_user.prospects.build(prospect_params)
     if @prospect.save
       flash[:success] = "New prospect added."
-      redirect_to root_path
+      redirect_to prospects_path
     else
       render 'new'
     end

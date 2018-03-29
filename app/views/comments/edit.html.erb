@@ -1,9 +1,9 @@
 <div class="col-md-6 col-md-offset-3">
 	<div class="prospect-show">
-		<h1>Edit Comment</h1>
+		<h3>Edit Comment</h3>
 		<%= simple_form_for([@prospect, @comment]) do |f| %>
 			<%= f.input :content, label: "Comment" %>
-			<%= f.button :submit %>
+			<%= f.button :submit, :class => 'btn btn-kontrol' %>
 		<% end %>
 	</div>
 </div>
