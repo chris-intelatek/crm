@@ -1,6 +1,7 @@
 <div class="col-md-6 col-md-offset-3">
 	<div class="prospect-show">
 		<h3><%= @prospect.organization %></h3>
+		<br>
 		<p class="prospect-posted-by">Posted by <%= @prospect.user.advisor_first_name + ' ' +
 		@prospect.user.advisor_last_name %> <%= time_ago_in_words(@prospect.created_at) %> ago  
 		and last updated <%= time_ago_in_words(@prospect.updated_at) %> ago.</p>
@@ -132,10 +133,10 @@
 
 		<%= render 'comments/form' %>
 
-		<div class="links">
-			<%= link_to "Back", root_path, class: "btn btn-info" %>
+    <br>
+			<%= link_to "Back", prospects_path, class: "btn btn-default" %>
 			<%= link_to "Edit & More Fields", edit_prospect_path(@prospect), class: "btn btn-warning" %>
 			<%= link_to "Delete", prospect_path(@prospect), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-		</div>
+
 	</div>
 </div>

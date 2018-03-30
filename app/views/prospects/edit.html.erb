@@ -1,6 +1,7 @@
 <div class="col-md-4 col-md-offset-4">
 	<div class="prospect-show">
     <h3>Edit Prospect</h3>
+    <br>
 		<%= simple_form_for @prospect do |f| %>
 			<%= f.input :organization, label: "Organization Name" %>
 			<%= f.input :street_address %> 
@@ -110,7 +111,10 @@
 			<%= f.input :references_given, as: :boolean, label: "References Given" %>
       <%= f.input :agreement_date, {:include_blank => true, :default => nil, order: [:day, :month, :year] } %>
       <br>
-			<%= f.button :submit, class:"btn btn-kontrol" %>
+      
+  			<%= link_to "Back", prospect_path, class: "btn btn-default" %>
+        <%= f.button :submit, class:"btn btn-kontrol" %>
+      
 		<% end %>
 	</div>
 </div>
