@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'invite-webinar', to: 'pages#invite-webinar'
   get 'steps-to-sale', to: 'pages#steps-to-sale'
   get 'training-vids', to: 'pages#training-vids'
+  get 'lead-generation', to: 'pages#lead-generation'
   
   match '/users',     to: 'users#index',  via: 'get'
   match '/users/:id', to: 'users#show',   via: 'get'

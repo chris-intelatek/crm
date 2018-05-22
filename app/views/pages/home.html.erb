@@ -12,32 +12,18 @@
       </div>
     </div>
 
+
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <hr>
+      <div class="col-md-10 col-md-offset-1 center">
         <p>&nbsp;</p>
-        <h4>Two new videos... Hot off the press!</h4>
-        <em><font color="red">Scroll down for share links</font></em><br>
-        <br>
+        <a href="training-vids", class="btn btn-kontrol btn-lg">Training Webinar Videos</a>
+        <% if current_user.group == "bc" || current_user.group == "all" %>
+          &nbsp; &nbsp; &nbsp; &nbsp; <a href="lead-generation", class="btn btn-kontrol btn-lg">Order Lead Generation</a></p>    
+        <% end %>
       </div>
     </div>
-    
-    <div class="row">
-      <div class="col-md-5 col-md-offset-1">
-        <div class="embed-responsive embed-responsive-16by9 clearfix">
-          <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/261662534" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="embed-responsive embed-responsive-16by9 clearfix">
-          <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/261833058" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>    
-    
-    
-    <p>&nbsp;</p>
-    
+
+
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <hr>
@@ -254,14 +240,15 @@
         </ul>
       </div>
     </div>
-    
-    <% if current_user.group == "bc" || current_user.group == "all" %>
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 center">
-          <p>&nbsp;</p>
-          <p><a href="training-vids", class="btn btn-kontrol btn-lg">Training Webinar Videos</a></p>  
-        </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 center">
+        <p>&nbsp;</p>
+        <a href="training-vids", class="btn btn-kontrol btn-lg">Training Webinar Videos</a>
+        <% if current_user.group == "bc" || current_user.group == "all" %>
+          &nbsp; &nbsp; &nbsp; &nbsp; <a href="lead-generation", class="btn btn-kontrol btn-lg">Order Lead Generation</a></p>    
+        <% end %>
       </div>
-    <% end %>
+    </div>
     
   </div>
