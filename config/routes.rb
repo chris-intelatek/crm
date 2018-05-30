@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'steps-to-sale', to: 'pages#steps-to-sale'
   get 'training-vids', to: 'pages#training-vids'
   get 'lead-generation', to: 'pages#lead-generation'
+  get 'lead-generation-faq', to: 'pages#lead-generation-faq'
   
   match '/users',     to: 'users#index',  via: 'get'
   match '/users/:id', to: 'users#show',   via: 'get'
