@@ -2,6 +2,9 @@
 	<div class="prospect-show">
 		<h3 class="new-prospect-header">Add New Prospect</h3>
 		<br>
+		<p><strong><em>Please only enter prospects with whom you have already given an Overview Presentation.</em></strong></p>
+		<br>
+		
 		<%= simple_form_for @prospect do |f| %>
 			<%= f.input :organization, required: true, autofocus: true, label: "Organization Name" %> 
 			<%= f.input :state, collection: [
