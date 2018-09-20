@@ -3,21 +3,19 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :destroy, :update]
 
 
-
   def index
     if params[:search]
       @users = User.search(params[:search]).order("created_at DESC")
     else
       @users = User.all
+      
+      respond_to do |format|
+        format.html
+        format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
+      end   
+      
     end
   end
-
-
-
-
-  # def index
-  # 	@users = User.all
-  # end
 
   def show
   end
